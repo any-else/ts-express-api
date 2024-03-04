@@ -11,5 +11,6 @@ export const todoRoute = (app: Express) => {
   app.get("/api/v1/todo/search", todoController.search);
   /** update */
   /** delete */
+  app.delete("/api/v1/todo/delete/:id", todoController.delete);
   /** bai tap ve nha pagination */
 };

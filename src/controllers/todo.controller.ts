@@ -70,6 +70,20 @@ class TodoController {
       });
     }
   }
+
+  async delete(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const result = await todoService.delete(id);
+      res.status(203).json({
+        message: "deleted successfully",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "server error",
+      });
+    }
+  }
 }
 
 export const todoController = new TodoController();

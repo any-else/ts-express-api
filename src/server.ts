@@ -8,7 +8,11 @@ const app: Express = express();
 /** Middlewares */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 /** Router của express */
 rootRoute(app);

@@ -74,6 +74,21 @@ class TodoService {
       );
     });
   }
+
+  delete(id: string) {
+    return new Promise((resolve, reject) => {
+      this.connection.query(
+        "DELETE FROM todo WHERE _id = ?",
+        Number(id),
+        (error: Error, data: any) => {
+          if (error) {
+            reject(error);
+          }
+          resolve(data);
+        }
+      );
+    });
+  }
 }
 
 export const todoService = new TodoService();
